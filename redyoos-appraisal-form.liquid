@@ -1,0 +1,90 @@
+{% schema %}
+{
+  "name": "Appraise Your Item",
+  "settings": [],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Appraise Your Item"
+    }
+  ]
+}
+{% endschema %}
+
+<section class="appraisal-form">
+  <div class="appraisal-container">
+    <h2 class="appraisal-title">Appraise your item</h2>
+    
+    <form class="appraisal-upload-form" enctype="multipart/form-data">
+      <label for="appraisal-photos" class="upload-area">
+        <span>Upload Photos (up to 5)</span>
+        <input 
+          type="file" 
+          id="appraisal-photos" 
+          name="photos[]" 
+          accept="image/*" 
+          multiple 
+          max="5" 
+          style="display:none"
+        >
+      </label>
+
+      <ul class="upload-instructions">
+        <li>Upload multiple images of one (1) jewelry piece from multiple angles.</li>
+        <li>Take photos in good lighting.</li>
+        <li>Include close-ups of markings and stamps.</li>
+        <li>Avoid including extra doodads in the image (best to take pictures of the jewelry on a plain white table).</li>
+        <li>Phasellus interdum sed tortor vel mollis. Vivamus sagittis venenatis dolor, non sagittis quam dapibus quis.</li>
+        <li>Cras in lectus semper, convallis mi eget, dignissim tellus.</li>
+        <li>In vel ultrices lacus. Fusce varius risus a placerat tristique.</li>
+        <li>Proin sagittis, tortor id ultricies suscipit, ante nulla facilisis leo, sit amet finibus arcu metus nec velit.</li>
+        <li>Morbi dapibus magna eget tempus efficitur.</li>
+      </ul>
+
+      <button type="button" class="analyze-btn" disabled>Analyze</button>
+    </form>
+  </div>
+</section>
+
+<style>
+.appraisal-form {
+  padding: 40px 0;
+}
+.appraisal-container {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+.appraisal-title {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+.upload-area {
+  display: block;
+  border: 2px dashed #ccc;
+  padding: 50px 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  color: #666;
+}
+.upload-area:hover {
+  background-color: #fafafa;
+}
+.upload-instructions {
+  text-align: left;
+  font-size: 0.9rem;
+  color: #444;
+  margin-bottom: 20px;
+}
+.upload-instructions li {
+  margin-bottom: 6px;
+}
+.analyze-btn {
+  background-color: #ccc;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: not-allowed;
+  border-radius: 4px;
+}
+</style>
