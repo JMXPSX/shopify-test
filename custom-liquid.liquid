@@ -1,0 +1,156 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: calc({{ section.settings.padding_top }}px * 0.75);
+    padding-bottom: calc({{ section.settings.padding_bottom }}px  * 0.75);
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+<style>
+.services-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.services-section h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.services-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.service-card {
+  background-color: #f7f7f7;
+  flex: 1 1 45%;
+  max-width: 500px;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.service-image {
+  width: 100%;
+  height: 180px;
+  background-color: #e0e0e0;
+  margin-bottom: 20px;
+}
+
+.service-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: left;
+  width: 100%;
+}
+
+.service-description {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+  text-align: left;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.service-button {
+  background-color: #ccc;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border: none;
+  font-size: 14px;
+  cursor: not-allowed;
+}
+</style>
+
+<div class="services-section">
+  <h2>Services</h2>
+  <div class="services-grid">
+
+    <div class="service-card">
+      <div class="service-image"></div>
+      <div class="service-title">Recycle Mail Kit</div>
+      <div class="service-description">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eu quam pulvinar, porttitor urna vitae, interdum mauris. Phasellus imperdiet feugiat erat, eu pharetra ligula convallis eu. Donec sodales eu dolor quis efficitur. Phasellus interdum sed tortor vel mollis. Vivamus sagittis venenatis dolor, non sagittis quam dapibus quis.
+      </div>
+      <button class="service-button" disabled>Get a Recycle Mail Kit</button>
+    </div>
+
+    <div class="service-card">
+      <div class="service-image"></div>
+      <div class="service-title">Buy Back Mail Kit</div>
+      <div class="service-description">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eu quam pulvinar, porttitor urna vitae, interdum mauris. Phasellus imperdiet feugiat erat, eu pharetra ligula convallis eu. Donec sodales eu dolor quis efficitur. Phasellus interdum sed tortor vel mollis. Vivamus sagittis venenatis dolor, non sagittis quam dapibus quis.
+      </div>
+      <button class="service-button" disabled>Get a Buy Back Mail Kit</button>
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.custom-liquid.name",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "options": [
+        { "value": "accent-1", "label": "t:sections.all.colors.accent_1.label" },
+        { "value": "accent-2", "label": "t:sections.all.colors.accent_2.label" },
+        { "value": "background-1", "label": "t:sections.all.colors.background_1.label" },
+        { "value": "background-2", "label": "t:sections.all.colors.background_2.label" },
+        { "value": "inverse", "label": "t:sections.all.colors.inverse.label" }
+      ],
+      "default": "background-1",
+      "label": "t:sections.all.colors.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 52
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.custom-liquid.presets.name"
+    }
+  ]
+}
+{% endschema %}
