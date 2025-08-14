@@ -1,0 +1,170 @@
+<div class="jewelry-list-container">
+  <h2 class="title">Jewelry List</h2>
+
+  <!-- Jewelry item rows -->
+  <div class="jewelry-row">
+    <div class="item-icons">
+      <span class="icon-box"></span>
+      <span class="icon-box"></span>
+      <span class="icon-box"></span>
+    </div>
+    <button class="btn-analysis">View Analysis</button>
+    <span class="status-circle"></span>
+  </div>
+
+  <div class="jewelry-row">
+    <div class="item-icons">
+      <span class="icon-box"></span>
+      <span class="icon-box"></span>
+      <span class="icon-box"></span>
+    </div>
+    <button class="btn-analysis">View Analysis</button>
+    <span class="status-circle"></span>
+  </div>
+
+  <div class="jewelry-row">
+    <div class="item-icons">
+      <span class="icon-box"></span>
+      <span class="icon-box"></span>
+      <span class="icon-box"></span>
+    </div>
+    <button class="btn-analysis in-progress">Analysis in Progress...</button>
+    <span class="status-circle"></span>
+  </div>
+
+  <!-- Total value section -->
+  <div class="total-value-box">
+    <p>Estimated Total Value</p>
+    <h2>???</h2>
+    <p>Please wait while your items are being appraised.</p>
+  </div>
+
+  <!-- Buttons -->
+  <div class="action-buttons">
+    <button class="btn-disabled">Add another item</button>
+    <button class="btn-disabled">Proceed to Buy Back</button>
+    <button class="btn-disabled">Proceed to Recycle</button>
+  </div>
+</div>
+
+<style>
+.jewelry-list-container {
+  max-width: 700px;
+  margin: auto;
+  padding: 20px;
+  background: #f8f8f8;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.jewelry-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #e8e8e8;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.item-icons {
+  display: flex;
+  gap: 5px;
+}
+
+.icon-box {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: #ccc;
+}
+
+.btn-analysis {
+  padding: 6px 12px;
+  background: #ccc;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-analysis.in-progress {
+  background: #bbb;
+  cursor: not-allowed;
+}
+
+.status-circle {
+  width: 15px;
+  height: 15px;
+  background: #ccc;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.total-value-box {
+  background: #ddd;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.total-value-box h2 {
+  font-size: 28px;
+  margin: 5px 0;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.btn-disabled {
+  padding: 8px 16px;
+  background: #ccc;
+  border: none;
+  cursor: not-allowed;
+}
+</style>
+
+{% schema %}
+{
+  "name": "Jewelry List",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "Jewelry List"
+    },
+    {
+      "type": "number",
+      "id": "total_items",
+      "label": "Number of Jewelry Rows",
+      "default": 3
+    }
+  ],
+  "blocks": [
+    {
+      "type": "jewelry_item",
+      "name": "Jewelry Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "item_status",
+          "label": "Status",
+          "default": "View Analysis"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 10,
+  "presets": [
+    {
+      "name": "Jewelry List"
+    }
+  ]
+}
+{% endschema %}
